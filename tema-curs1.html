@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function ComputeCircleArea(radix) {
+        return +(Math.PI * radix ** 2).toFixed(2);
+      }
+
+      function RetrieveTitleAndIndex(arr) {
+        let text = "";
+        arr.forEach((element, index) => {
+          text += `The movie title is ${element} and the position in array is ${index} \n`;
+        });
+        return text;
+      }
+      const radix = 10;
+      console.log(
+        `Exercitiu 2 The circle area with radix= ${radix} is ${ComputeCircleArea(
+          radix
+        )}`
+      );
+
+      const movieArray = [
+        "Terminator 1",
+        "Transformers",
+        "The Irishman",
+        "Batman Arkham Night",
+        "Freedom"
+      ];
+
+      console.log(`Exercitiu 3 ${RetrieveTitleAndIndex(movieArray)}`);
+
+
+      ////
+      function ArrayComparison(a,b){
+    
+             if(a>b){
+                return 1;
+            }else{
+                if(a == b){return 0;}
+                else return -1
+            }   
+
+      }
+       const arrayForSort=[5, 3, "1", 7, "9", 30, "45", 7]; 
+        
+        let result=arrayForSort.sort(ArrayComparison);    
+     console.log(`Exercitiul 4: valoarea minima este ${arrayForSort[0]}, valoarea maxima este ${arrayForSort[arrayForSort.length-1]}`)   
+
+    </script>
+  </body>
+</html>
