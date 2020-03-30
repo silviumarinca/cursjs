@@ -54,18 +54,31 @@
 
 
 
-     function FindMinMaxInArray(array,min,max){
-         if(start === end) return new Object({min:array[start],max:array[start]}); 
-         if(start === end-1){
-           return  {max: Math.max(array[start],array[end]), min: Math.min(array[start],array[end]) }; 
+     function FindMinMaxInArray(array,start,end){
+      //  console.log(start,end);
+         if(start == end) {  
+          console.log({min:array[start],max:array[start]});
+           return  {min:array[start],max:array[start]} ; 
          }
-         let first_half = FindMinMaxInArray(array,start,(start+end)/2)
-         let second_half =FindMinMaxInArray(array,(end-start)/2,end)
-          return 
-          new Object({min:Math.min(first_half.min,second_half.min),
-          max:Math.max(first_half.max,second_half.max)});
+         if(start == end-1){ 
+          console.log({min:array[start],max:array[start]});
+           return    {max: Math.max(array[start],array[end]), min: Math.min(array[start],array[end]) }; 
+         }
+
+         let mid=Math.floor((start+end)/2);
+          let first_half = 
+           FindMinMaxInArray(array,start,mid)
+          let second_half = 
+          FindMinMaxInArray(array,mid+1  ,end);
+ 
+       //    console.log(      {min:Math.min(first_half.min,second_half.min),
+      //     max:Math.max(first_half.max,second_half.max));
+           return  {min:Math.min(first_half.min,second_half.min),
+                   max:Math.max(first_half.max,second_half.max)
+                   };
      }
-     console.log(`Exercitiul 4: valoarea cu calcul recursiv minima este ${arrayForSort[0]}, valoarea maxima este ${arrayForSort[arrayForSort.length-1]}`)   
+     const resultmaxmin =  FindMinMaxInArray(arrayForSort,0,arrayForSort.length-1 );
+     console.log(`Exercitiul 4: valoarea cu calcul recursiv minima este ${resultmaxmin.min}, valoarea maxima este ${resultmaxmin.max}`)   
     </script>
   </body>
 </html>
