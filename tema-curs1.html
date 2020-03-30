@@ -52,6 +52,20 @@
         let result=arrayForSort.sort(ArrayComparison);    
      console.log(`Exercitiul 4: valoarea minima este ${arrayForSort[0]}, valoarea maxima este ${arrayForSort[arrayForSort.length-1]}`)   
 
+
+
+     function FindMinMaxInArray(array,min,max){
+         if(start === end) return new Object({min:array[start],max:array[start]}); 
+         if(start === end-1){
+           return  {max: Math.max(array[start],array[end]), min: Math.min(array[start],array[end]) }; 
+         }
+         let first_half = FindMinMaxInArray(array,start,(start+end)/2)
+         let second_half =FindMinMaxInArray(array,(end-start)/2,end)
+          return 
+          new Object({min:Math.min(first_half.min,second_half.min),
+          max:Math.max(first_half.max,second_half.max)});
+     }
+     console.log(`Exercitiul 4: valoarea cu calcul recursiv minima este ${arrayForSort[0]}, valoarea maxima este ${arrayForSort[arrayForSort.length-1]}`)   
     </script>
   </body>
 </html>
